@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ruby ../lib/Twitterwhack.rb
+rerun ../lib/app.rb
