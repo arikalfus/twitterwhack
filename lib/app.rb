@@ -31,7 +31,8 @@ post '/results' do
   redirect to '/error' if first_result.nil? || second_result.nil? || whole_result.nil?
 
   erb :result, :locals => { :name => session[:name],
-                            :first_result => first_result,
-                            :second_result => second_result,
-                            :whole_result => whole_result }
+                            :words => [first_word, last_word],
+                            :first_result => first_result['statuses'],
+                            :second_result => second_result['statuses'],
+                            :whole_result => whole_result['statuses'] }
 end

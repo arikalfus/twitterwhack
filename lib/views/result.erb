@@ -8,9 +8,28 @@
   <h2> <%= name %>, thank you for playing Twitterwhack! Here are your results.</h2>
 </div>
 <div>
-  Your Twitterwhack index is: <%= whole_result['statuses'].size %>
-  First result: <%= first_result['statuses'].size %><br><br>
-  Second result: <%= second_result['statuses'].size %>
+  Your Twitterwhack index from words <b><%= words[0] %></b> and <b><%= words[1] %></b> is: <%= whole_result.size %>.<br>
+  <% if whole_result.size == 0 %>
+      You got whacked! Nice!
+  <% elsif whole_result.size >= 90 %>
+      Not the best... Try again!
+  <% elsif whole_result.size <= 10 %>
+      That's pretty impressive!
+  <% else %>
+      Good job!
+  <% end %>
+  <br><br>
+  Your Twitterwhack score is: <%= first_result.size * second_result.size %>.<br><br>
+  <% rand_num = rand whole_result.size %>
+  <% if whole_result[rand_num].nil? %>
+      You got whacked! We could not recover any tweets containing both of your words.
+  <% else %>
+      Here's one of the tweets we recovered from your search:<br><br>
+      <%= whole_result[rand_num]['text'] %><br>
+      <i>tweeted by</i> <%= whole_result[rand_num]['user']['screen_name'] %>.
+  <% end %>
+</div>
+<div>
 </div>
 </body>
 </html>
