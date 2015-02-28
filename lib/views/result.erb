@@ -4,6 +4,13 @@
 </head>
 
 <body>
-
+<div>
+  <h2> <%= name %>, thank you for playing Twitterwhack! Here are your results.</h2>
+</div>
+<div>
+  Your Twitterwhack index is: <%= whole_result['statuses'].size %>
+  First result: <%= first_result['statuses'].size %><br><br>
+  Second result: <%= second_result['statuses'].size %>
+</div>
 </body>
 </html>
