@@ -4,6 +4,7 @@ require 'json'
 require_relative 'simple_twitter'
 
 set :port, 3843
+set :public_folder, File.dirname(__FILE__) + '/static'
 enable :sessions
 
 # HTTP entry points
@@ -12,7 +13,7 @@ get '/' do
 end
 
 get '/error' do
-  erb :error
+  erb :error, :layout => false
 end
 
 post '/form' do

@@ -1,40 +1,16 @@
-<html>
+<div class="page-header text-center">
+  <h2>Hello, <%= name %>! Welcome to Twitterwhack</h2>
+</div>
 
-<head>
-  <title>Twitterwhack</title>
-  <style>
-    form {
-      margin: 0 auto;
-      padding: 1em;
-      border: 1px solid #CCC;
-      border-radius: 1em;
-    }
-
-    input {
-      font: 1em sans-serif;
-      border: 1px solid #999;
-    }
-
-    input:focus {
-      border-color: #000;
-    }
-  </style>
-</head>
-
-<body>
-<h2>Hello, <%= name %>! Welcome to Twitterwhack</h2>
-
-<h4>Instructions:</h4>
-<p>
-  Enter two words into the form, and hit 'submit'. We will run our unique Twitterwhack algorithm on your phrase<br>
-  and present you with the results!
-</p>
-
-<form action="/results" method="POST">
-  First word: <input type="text" name="first">
-  Second word: <input type="text" name="second">
-  <input type="submit">
+<div class="well">
+  <h4>Instructions:</h4>
+  <p>
+    Enter two words into the form, and hit 'submit'. We will run our unique Twitterwhack algorithm on your phrase<br>
+    and present you with the results!
+  </p>
+</div>
+<form class="input-group" style="margin: 0 auto" action="/results" method="POST">
+  <input class="form-control" style="width: 50%" type="text" name="first" placeholder="First word">
+  <input class="form-control" style="width: 50%" type="text" name="second" placeholder="Second word">
+  <input class="btn btn-default form-control" type="submit">
 </form>
-</body>
-
-</html>

@@ -1,16 +1,10 @@
-<html>
-<head>
-  <title>Twitterwhack</title>
-</head>
-
-<body>
-<div>
-  <h2> <%= name %>, thank you for playing Twitterwhack! Here are your results.</h2>
+<div class="page-header">
+  <h2 class="text-center"> <%= name %>, thank you for playing Twitterwhack! Here are your results.</h2>
 </div>
-<div>
+<div class="well">
   Your Twitterwhack index from words <b><%= words[0] %></b> and <b><%= words[1] %></b> is: <%= whole_result.size %>.<br>
   <% if whole_result.size == 0 %>
-      You got whacked! Nice!
+      You got whacked! Try using less specific words.
   <% elsif whole_result.size >= 90 %>
       Not the best... Try again!
   <% elsif whole_result.size <= 10 %>
@@ -24,12 +18,10 @@
   <% if whole_result[rand_num].nil? %>
       You got whacked! We could not recover any tweets containing both of your words.
   <% else %>
+    <div class="well">
       Here's one of the tweets we recovered from your search:<br><br>
       <%= whole_result[rand_num]['text'] %><br>
       <i>tweeted by</i> <%= whole_result[rand_num]['user']['screen_name'] %>.
+    </div>
   <% end %>
 </div>
-<div>
-</div>
-</body>
-</html>
