@@ -1,20 +1,16 @@
 # noinspection RubyResolve
 require 'sinatra'
 require 'json'
-require 'sinatra/formkeeper'
+require 'sinatra/formkeeper' # for form validation
 require_relative 'simple_twitter'
 
 set :port, 3843
-set :public_folder, File.dirname(__FILE__) + '/static'
+set :public_folder, File.dirname(__FILE__) + '/static' # for CSS/JS files
 enable :sessions
 
 # HTTP entry points
 get '/' do
   erb :name
-end
-
-get '/error' do
-  erb :error, :layout => false
 end
 
 post '/form' do
@@ -50,7 +46,7 @@ post '/results' do
       erb :error, :locals => { :err_message => 'The second word was not present. Please press the back button on your browser.' }
     end
 
-  else
+  else # if form didn't fail
     # Begin Twitter API calls
     first_word = params[:first]
     last_word = params[:second]
