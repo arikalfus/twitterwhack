@@ -2,3 +2,5 @@
 .idea/*
 data/secrets.rb
 record.mp4
+
+Gemfile.lock
