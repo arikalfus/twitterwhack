@@ -46,7 +46,7 @@ post '/results' do
       erb :error, :locals => { :err_message => 'The second word was not present. Please press the back button on your browser.' }
     end
 
-  else # if form didn't fail
+  else
     # Begin Twitter API calls
     first_word = params[:first]
     last_word = params[:second]
@@ -55,7 +55,7 @@ post '/results' do
     second_result = Simple_Twitter.search last_word
     whole_result = Simple_Twitter.search "#{first_word} #{last_word}"
 
-    redirect to '/error', :locals => { :err_message => 'Sorry, there was an error in accessing the Twitter API. One or more of the requests returned with an error code that was not 200 (did you enter values for the search words?).' } if first_result.nil? || second_result.nil? || whole_result.nil?
+    redirect to '/error', :locals => { :err_message => 'Sorry, there was an error in accessing the Twitter API. One or more of the requests returned with an error code that was not 200. Please notify the developer.' } if first_result.nil? || second_result.nil? || whole_result.nil?
 
     erb :result, :locals => { :name => session[:name],
                               :words => [first_word, last_word],

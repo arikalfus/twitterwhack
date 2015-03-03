@@ -18,7 +18,7 @@
   <% if whole_result[rand_num].nil? %>
       You got whacked! We could not recover any tweets containing both of your words.
   <% else %>
-    <div class="well">
+    <div class="well" style="background-color: #fcf8e3 ">
       Here's one of the tweets we recovered from your search:<br><br>
       <%= whole_result[rand_num]['text'] %><br>
       <i>tweeted by</i> <%= whole_result[rand_num]['user']['screen_name'] %>.

@@ -14,7 +14,6 @@ module Simple_Twitter
     # Set up Net::HTTP to use SSL, which is required by Twitter.
     http = Net::HTTP.new address.host, address.port
     http.use_ssl = true
-    # noinspection RubyResolve
     http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
     # Build request and authorize it with OAuth
@@ -26,7 +25,7 @@ module Simple_Twitter
     response = http.request request
 
     if response.code == '200'
-      JSON.parse(response.body)
+      JSON.parse response.body
     else
       nil
     end
